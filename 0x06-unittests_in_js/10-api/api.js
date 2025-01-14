@@ -14,21 +14,23 @@ app.get('/cart/:id([0-9]+)', (req, res) => {
 });
 
 app.get('/available_payments', (req, res) => {
-  res.json({
+    res.set("Content-Type", "application/json");
+    const paymentOptions = {
     payment_methods: {
-      credit_cards: true,
-      paypal: false
+          credit_cards: true,
+          paypal: false
     }
-  });
+    }
+    res.send(paymentOptions);
 });
 
 app.post('/login', (req, res) => {
-  const username = req.body.userName;
-  if (username) {
-    res.send(`Welcome ${username}`);
-  } else {
+    const user = req.body.user || req.body.userName;
+    if (user) {
+    res.send(`Welcome ${user}`);
+    } else {
     res.status(404).send();
-  }
+    }
 });
 
 app.listen(port, () => {
