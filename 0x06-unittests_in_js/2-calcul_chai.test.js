@@ -3,19 +3,19 @@ const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber', function () {
   it('should add two numbers', function () {
-    expect(calculateNumber('SUM', 3.7, 2.5)).to.equal(7);
+    expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6);
   });
 
   it('should subtract two numbers', function () {
-    expect(calculateNumber('SUBTRACT', 3.7, 2.5)).to.equal(1);
+    expect(calculateNumber('SUBTRACT', 1.4, 4.5)).to.equal(-4);
   });
 
   it('should divide two numbers', function () {
-    expect(calculateNumber('DIVIDE', 8.4, 2.5)).to.equal(3);
+    expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.equal(0.2);
   });
 
   it('should return Error when dividing by zero', function () {
-    expect(calculateNumber('DIVIDE', 3.7, 0)).to.equal('Error');
+    expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
   });
 
 });
